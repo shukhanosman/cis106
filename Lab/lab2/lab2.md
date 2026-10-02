@@ -3,4 +3,4 @@
 ## Virtual Machine settings
 
 ![cpufetch](cpufetch.png)
-![script](script.png)
+![script](Script.png)
