@@ -13,7 +13,9 @@
 
 ### Directory 1
 ![D1](d1.png)
-![D1](d2.png)
+
+### Directory 2
+![D2](d2.png)
 
 
 ## Question 3: Challenge 2
