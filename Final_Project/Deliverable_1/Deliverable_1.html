@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deliverable_1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="deliverable-1">Deliverable 1</h1>
+<h2 id="questions">Questions</h2>
+<h3 id="1-what-is-a-web-server">1. What is a web server?</h3>
+<p><img src="webserver.png" alt="Web server"></p>
+<p>A <strong>web server</strong> is software that receives requests from web browsers and sends back website content, such as web pages, images, and files. For example, when someone visits a website, the browser sends a request to the web server, and the server responds with the requested content.</p>
+<h3 id="2-what-are-some-different-web-server-applications">2. What are some different web server applications?</h3>
+<h4 id="application-1-apache-http-server">Application 1: Apache HTTP Server</h4>
+<p><img src="apachewebserver.jpg" alt="Apache HTTP Server"></p>
+<p>Apache HTTP Server is a free, open-source web server developed by the Apache Software Foundation. It is used to host websites and deliver web content to users.</p>
+<ul>
+<li>Website: <a href="https://httpd.apache.org/">Apache HTTP Server</a></li>
+<li>Available for: Linux, Windows, macOS, and other Unix-like operating systems.</li>
+<li>Latest version: Check the <a href="https://httpd.apache.org/download.cgi">official download page</a> for the current release.</li>
+</ul>
+<h4 id="application-2-nginx">Application 2: Nginx</h4>
+<p><img src="nginx.png" alt="Nginx"></p>
+<p>Nginx is an open-source web server known for handling many simultaneous connections efficiently. It can also work as a reverse proxy and load balancer.</p>
+<table>
+<thead>
+<tr>
+<th>Website</th>
+<th>Availability</th>
+<th>Latest version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://nginx.org/en/download.html">Nginx</a></td>
+<td>Linux, Windows, and other Unix-like systems</td>
+<td>See the <a href="https://nginx.org/en/download.html">official download page</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="application-3-microsoft-internet-information-services-iis">Application 3: Microsoft Internet Information Services (IIS)</h4>
+<p>Microsoft IIS is a web server developed by Microsoft. It is used to host websites and web applications, especially on Windows-based servers.</p>
+<ul>
+<li>Website: <a href="https://www.iis.net/">Microsoft IIS</a></li>
+<li>Available for: Windows and Windows Server.</li>
+<li>Latest version: IIS 10.0. The available features depend on the Windows version.</li>
+</ul>
+<h4 id="application-4-caddy">Application 4: Caddy</h4>
+<p>Caddy is an open-source web server known for its simple configuration and automatic HTTPS support. It can automatically obtain and renew TLS certificates for supported websites.</p>
+<ul>
+<li>Website: <a href="https://caddyserver.com/">Caddy</a></li>
+<li>Available for: Linux, Windows, macOS, and other supported platforms.</li>
+<li>Latest version: Check the <a href="https://caddyserver.com/download">official download page</a> for the current release.</li>
+</ul>
+<h3 id="3-what-is-virtualization">3. What is virtualization?</h3>
+<p><strong>Virtualization</strong> is a technology that allows one physical computer to run multiple virtual computers or operating systems. It uses software to create virtual versions of computer hardware, so users can run different operating systems on the same physical machine.</p>
+<p>For example, a computer running Windows can use virtualization software to run a Debian Linux virtual machine.</p>
+<h3 id="4-what-is-virtualbox">4. What is VirtualBox?</h3>
+<p><strong>VirtualBox</strong> is a virtualization application developed by Oracle. It allows users to create and run virtual machines on a physical computer. For example, you can install VirtualBox on your computer and use it to run Debian Linux without replacing your main operating system.</p>
+<ul>
+<li>Website: <a href="https://www.virtualbox.org/">Oracle VirtualBox</a></li>
+<li>Available for: Windows, macOS, Linux, and Oracle Solaris hosts.</li>
+</ul>
+<h3 id="5-what-is-a-virtual-machine">5. What is a virtual machine?</h3>
+<p>A <strong>virtual machine (VM)</strong> is a software-based computer that behaves like a physical computer. It has virtual hardware, such as a processor, memory, storage, and a network adapter. A virtual machine can run its own operating system and applications.</p>
+<p>For example, Debian Linux can run inside a virtual machine while the physical computer continues running Windows.</p>
+<h3 id="6-in-the-context-of-virtualization-what-does-host-machine-and-guest-machine-mean">6. In the context of virtualization, what does host machine and guest machine mean?</h3>
+<ul>
+<li>
+<p><strong>Host Machine:</strong> The host machine is the physical computer that runs the virtualization software. It provides the physical resources, such as the CPU, RAM, storage, and network connection.</p>
+</li>
+<li>
+<p><strong>Guest Machine:</strong> The guest machine is the virtual computer created inside the host machine. It uses virtual hardware and runs its own operating system.</p>
+</li>
+</ul>
+<p>For example, if your physical computer runs Windows and VirtualBox runs Debian Linux inside it, Windows is the host operating system and Debian is the guest operating system.</p>
+<h3 id="7-what-is-debian">7. What is Debian?</h3>
+<p>Debian is a free, open-source operating system based on the Linux kernel. It is maintained by a community of developers and is known for stability and reliability. Debian is commonly used on servers, desktop computers, and virtual machines.</p>
+<p>Debian uses the APT package manager to install and update software. For example:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">sudo</span> apt update
+<span class="hljs-built_in">sudo</span> apt upgrade
+<span class="hljs-built_in">sudo</span> apt install apache2
+</div></code></pre>
+<ul>
+<li>Website: <a href="https://www.debian.org/">Debian</a></li>
+<li>Latest stable version: Check the <a href="https://www.debian.org/">Debian website</a> for the current stable release.</li>
+</ul>
+<h3 id="8-what-is-a-firewall">8. What is a firewall?</h3>
+<p><img src="Firewall.jpeg" alt="Firewall"></p>
+<p>A <strong>firewall</strong> is a security system that monitors and controls incoming and outgoing network traffic. It follows configured rules to allow or block connections. A firewall helps protect computers and networks from unauthorized access and unwanted network traffic.</p>
+<p>For example, a firewall can allow normal web traffic while blocking an unapproved connection to a computer.</p>
+<h3 id="9-what-is-ssh">9. What is SSH?</h3>
+<p><strong>SSH (Secure Shell)</strong> is a network protocol that allows a user to securely connect to and manage another computer over a network. The connection is encrypted, which helps protect the information being transmitted.</p>
+<p>SSH is commonly used by administrators to manage Linux servers remotely.</p>
+<pre class="hljs"><code><div>ssh username@192.168.1.100
+</div></code></pre>
+<p>The command connects to the computer at <code>192.168.1.100</code> using the specified username. The default SSH port is <strong>22</strong>.</p>
+<h3 id="10-what-is-an-ip-address">10. What is an IP Address?</h3>
+<p>An <strong>IP (Internet Protocol) address</strong> is a numerical address assigned to a device on a network. It identifies the device and allows it to communicate with other devices.</p>
+<p>There are two main versions:</p>
+<ul>
+<li><strong>IPv4:</strong> Uses a 32-bit address, usually written as four numbers separated by periods. Example: <code>192.168.1.100</code>.</li>
+<li><strong>IPv6:</strong> Uses a 128-bit address written in hexadecimal groups. It provides a much larger address space than IPv4.</li>
+</ul>
+<h3 id="11-what-is-a-network-mask">11. What is a network mask?</h3>
+<p>A <strong>network mask</strong>, also called a subnet mask, identifies which part of an IPv4 address represents the network and which part identifies the host (device) on that network.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div>IP Address:  192.168.1.100
+Subnet Mask: 255.255.255.0
+</div></code></pre>
+<p>With this subnet mask, <code>192.168.1</code> is the network portion and <code>100</code> is the host portion. The mask helps a device determine whether another IP address is on its local network.</p>
+<h3 id="12-what-is-a-port-in-the-context-of-networkingcomputers">12. What is a port? (In the context of networking/computers)</h3>
+<p>A <strong>port</strong> is a numbered communication endpoint used by a computer to direct network traffic to the correct application or service. An IP address identifies the device, while the port number helps identify the service on that device.</p>
+<p>Some common port numbers are:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Service</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21</td>
+<td>FTP</td>
+<td>File transfers</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SSH</td>
+<td>Secure remote access</td>
+</tr>
+<tr>
+<td>25</td>
+<td>SMTP</td>
+<td>Sending email</td>
+</tr>
+<tr>
+<td>53</td>
+<td>DNS</td>
+<td>Domain name resolution</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP</td>
+<td>Web traffic</td>
+</tr>
+<tr>
+<td>443</td>
+<td>HTTPS</td>
+<td>Secure web traffic</td>
+</tr>
+</tbody>
+</table>
+<p>Port numbers range from <strong>0 to 65535</strong>.</p>
+<h3 id="13-what-is-port-forwarding">13. What is port forwarding?</h3>
+<p><strong>Port forwarding</strong> is a router configuration that directs incoming network traffic on a particular port to a specific device inside a private network.</p>
+<p>For example, if you host a web server on a computer at <code>192.168.1.100</code>, you can configure your router to forward incoming traffic on port 80 to that computer. This can allow people outside your home network to reach the web server.</p>
+<p>Port forwarding should be configured carefully because it can make an internal service accessible from the internet.</p>
+<h3 id="14-what-is-localhost-in-the-context-of-networkingcomputers">14. What is localhost? (In the context of networking/computers)</h3>
+<p><strong>Localhost</strong> is a hostname that refers to the computer you are currently using. It is commonly used when testing applications or services running on the same computer.</p>
+<p>For example, if a web server is running on your computer, you can enter the following address in a browser to access it locally:</p>
+<pre class="hljs"><code><div>http://localhost
+</div></code></pre>
+<h3 id="15-what-does-this-ip-address-represent-127001">15. What does this IP address represent: 127.0.0.1?</h3>
+<p><strong>127.0.0.1</strong> is the IPv4 loopback address. It refers to the local computer, so network traffic sent to this address is directed back to the same computer instead of another device.</p>
+<p>It is often used to test the computer's local networking functions.</p>
+<pre class="hljs"><code><div>ping 127.0.0.1
+</div></code></pre>
+<p>This command tests communication with the local computer's network stack.</p>
+<h3 id="16-what-is-git">16. What is Git?</h3>
+<p><strong>Git</strong> is a free, open-source version control system. It tracks changes made to files, especially source code, and allows users to return to earlier versions of a project.</p>
+<p>Git is useful when working alone or with a team because it keeps a history of changes.</p>
+<p>Some common Git commands are:</p>
+<pre class="hljs"><code><div>git init
+git add .
+git commit -m <span class="hljs-string">&quot;Initial commit&quot;</span>
+git status
+git <span class="hljs-built_in">log</span>
+</div></code></pre>
+<ul>
+<li>Website: <a href="https://git-scm.com/">Git</a></li>
+</ul>
+<h3 id="17-what-is-github">17. What is GitHub?</h3>
+<p><strong>GitHub</strong> is an online platform for hosting and managing Git repositories. It allows developers to store projects online, share code, work together, review changes, and track project issues.</p>
+<p>Git and GitHub are related, but they are not the same:</p>
+<ul>
+<li>
+<p><strong>Git</strong> is the version control tool used to track changes.</p>
+</li>
+<li>
+<p><strong>GitHub</strong> is an online service that hosts Git repositories and provides collaboration tools.</p>
+</li>
+<li>
+<p>Website: <a href="https://github.com/">GitHub</a></p>
+</li>
+</ul>
+<h2 id="topics-i-did-not-understand">Topics I Did Not Understand</h2>
+<h3 id="1-systemctl">1. Systemctl</h3>
+<p>Systemctl is a Linux command used to manage and check system services. It allows users to start, stop, restart, enable, and check the status of services running on a Linux computer.</p>
+<p>Example:</p>
+<pre class="hljs"><code><div>systemctl status apache2
+</div></code></pre>
+<p>This command checks whether the Apache web server is running.</p>
+<h3 id="2-scp-secure-copy-protocol">2. SCP (Secure Copy Protocol)</h3>
+<p>SCP is a command-line tool used to securely transfer files between computers over an SSH connection. It is useful when uploading files from a host machine to a remote Linux server.</p>
+<p>Example:</p>
+<pre class="hljs"><code><div>scp file.txt username@192.168.1.100:/home/username/
+</div></code></pre>
+<p>This command copies a file from the local computer to a remote computer.</p>
+<h3 id="3-ufw-uncomplicated-firewall">3. UFW (Uncomplicated Firewall)</h3>
+<p>UFW is a firewall management tool for Linux that makes it easier to configure network security rules. It allows users to control which network connections are permitted or blocked.</p>
+<p>Example:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">sudo</span> ufw allow 22
+</div></code></pre>
+<p>This command allows incoming SSH connections through port 22.</p>
+<h3 id="4-nat-network-address-translation">4. NAT (Network Address Translation)</h3>
+<p>NAT is a networking method that allows a private network or virtual machine to access the internet through another device's network connection. In VirtualBox, NAT allows a guest machine to use the host machine's internet connection without being directly accessible from other computers on the network.</p>
+<h3 id="5-bridge-network-adapter">5. Bridge Network Adapter</h3>
+<p>A Bridge Network Adapter is a VirtualBox networking option that connects a virtual machine directly to the same physical network as the host computer. This allows the virtual machine to receive its own IP address from the router and communicate with other devices on the network.</p>
+<h3 id="6-cidr-classless-inter-domain-routing">6. CIDR (Classless Inter-Domain Routing)</h3>
+<p>CIDR is a method of representing IP addresses and their network masks using slash notation. The number after the slash represents how many bits of the IP address belong to the network portion.</p>
+<p>Example:</p>
+<pre class="hljs"><code><div>192.168.1.10/24
+</div></code></pre>
+<p>The <code>/24</code> means that the first 24 bits represent the network portion, while the remaining 8 bits represent the host portion.</p>
+
+</body>
+</html>
